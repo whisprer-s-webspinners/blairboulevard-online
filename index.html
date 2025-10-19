@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curious & Caffeinated – A Glimpse Beyond the Surface</title>
+  <?php wp_head(); ?>
+  <style>
+    /* WordPress-compatible CSS - Add to Appearance > Customize > Additional CSS */
+    body {
+      font-family: "Georgia", serif;
+      background-color: #fdfcfb;
+      margin: 0;
+      padding: 0;
+      color: #2c2c2c;
+      line-height: 1.6;
+    }
+
+    .cc-header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cc-header h1 {
+      font-family: "Georgia", serif;
+      font-size: 2.5rem;
+      color: #7289da;
+      margin: 0;
+    }
+
+    .cc-header p {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #555;
+    }
+
+    .cc-nav-bar {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .cc-nav-bar a {
+      color: #555;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0 1rem;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .cc-nav-bar a:hover {
+      color: #7289da;
+    }
+
+    .cc-hero-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 900px;
+      padding: 0 1rem;
+    }
+
+    .cc-hero-container img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .cc-hero-text h2 {
+      font-size: 1.8rem;
+      color: #2c2c2c;
+      margin: 0;
+    }
+
+    .cc-hero-text p {
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 600px;
+      margin: 0.8rem auto 0;
+    }
+
+    .cc-main-content {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .cc-recent-posts h2 {
+      font-size: 1.5rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.2rem;
+      margin-top: 3rem;
+    }
+
+    .cc-post-summary {
+      margin-bottom: 2rem;
+    }
+
+    .cc-post-summary h3 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .cc-post-summary p {
+      color: #555;
+    }
+
+    .cc-post-summary a {
+      color: #7289da;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .cc-post-summary a:hover {
+      text-decoration: underline;
+    }
+
+    .cc-action-link {
+      display: inline-block;
+      background-color: #7289da;
+      color: white !important;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .cc-action-link:hover {
+      background-color: #5b6fb8;
+    }
+
+    .cc-footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid #eee;
+    }
+    
+    @media (min-width: 768px) {
+      .cc-hero-container {
+        flex-direction: row;
+        text-align: left;
+        gap: 3rem;
+      }
+      .cc-hero-container img {
+        margin-bottom: 0;
+      }
+      .cc-hero-text p {
+        margin: 0.8rem 0 0 0;
+      }
+    }
+  </style>
+</head>
+<body <?php body_class(); ?>>
+
+<div class="cc-header">
+  <h1>Curious & Caffeinated</h1>
+  <p>A Glimpse Beyond the Surface</p>
+</div>
+
+<nav class="cc-nav-bar">
+  <?php
+  // WordPress Dynamic Menu (set in Appearance > Menus)
+  wp_nav_menu(array(
+    'theme_location' => 'primary',
+    'container' => false,
+    'fallback_cb' => false
+  ));
+  ?>
+  <!-- Fallback static menu if WordPress menu not set -->
+  <a href="<?php echo home_url(); ?>">Home</a>
+  <a href="<?php echo home_url('/about'); ?>">About</a>
+  <a href="<?php echo home_url('/general'); ?">General</a>
+  <a href="<?php echo home_url('/contact'); ?>">Contact</a>
+  <a href="<?php echo home_url('/dating'); ?>">Dating</a>
+  <a href="<?php echo home_url('/motherhood'); ?>">Motherhood</a>
+  <a href="<?php echo home_url('/wellness'); ?>">Wellness</a>
+  <a href="<?php echo home_url('/fashion'); ?>">Fashion</a>
+  <a href="<?php echo home_url('/work'); ?>">Work</a>
+  <a href="<?php echo home_url('/mentalhealth'); ?>">Mental Health</a>
+  <a href="<?php echo home_url('/beauty'); ?>">Beauty</a>
+  <a href="<?php echo home_url('/relationships'); ?>">Relationships</a>
+  <a href="<?php echo home_url('/sex'); ?>">Sex</a>
+  <a href="<?php echo home_url('/feminism'); ?>">Feminism</a>
+  <a href="<?php echo home_url('/privacy'); ?>">Privacy</a>
+</nav>
+
+<div class="cc-hero-container">
+  <!-- UPLOAD YOUR IMAGE: Go to Media Library, upload the image, then copy the URL here -->
+  <img src="<?php echo get_template_directory_uri(); ?>/images/hero-portrait.jpg" 
+       alt="Blair Boulevard - Professional Portrait" />
+  <div class="cc-hero-text">
+    <h2>The Inner Layers</h2>
+    <p>
+      Peel back the layers, if you dare. Sometimes, the most profound truths are found in the most unexpected places.
+      Every layer, every texture, every hidden detail tells a story. Listen closely to the <strong>whisper</strong> of what's beneath the <strong>froth</strong>.
+    </p>
+  </div>
+</div>
+
+<div class="cc-main-content">
+  <div class="cc-recent-posts">
+    <h2>Recent Posts</h2>
+    
+    <?php
+    // WordPress Dynamic Recent Posts
+    $recent_posts = wp_get_recent_posts(array(
+      'numberposts' => 3,
+      'post_status' => 'publish'
+    ));
+    
+    if ($recent_posts) {
+      foreach($recent_posts as $post) : ?>
+        <div class="cc-post-summary">
+          <h3><?php echo $post['post_title']; ?></h3>
+          <p>
+            <?php echo wp_trim_words($post['post_content'], 30, '...'); ?>
+            <a href="<?php echo get_permalink($post['ID']); ?>">Read More</a>
+          </p>
+        </div>
+      <?php endforeach;
+      wp_reset_query();
+    } else {
+      // Fallback static content if no posts
+    ?>
+    
+    <div class="cc-post-summary">
+      <h3>Dating in the Digital Age: Finding Authenticity</h3>
+      <p>
+        In an era of endless swiping and curated profiles, true connection can feel elusive.
+        Exploring the tension between our digital performances and our authentic selves...
+        <a href="<?php echo home_url('/dating'); ?>">Read More</a>
+      </p>
+    </div>
+    <div class="cc-post-summary">
+      <h3>The Quiet Revolution: Redefining Wellness</h3>
+      <p>
+        Wellness isn't just about what you eat or how much you exercise. It's about
+        navigating societal pressures and finding a sense of self-mastery...
+        <a href="<?php echo home_url('/wellness'); ?>">Read More</a>
+      </p>
+    </div>
+    <div class="cc-post-summary">
+      <h3>Unmasking the Trauma: The Power of Buried Memories</h3>
+      <p>
+        Our past lives in the present. This article explores how unresolved
+        trauma can shape our choices and how we can confront these buried memories to move forward...
+        <a href="<?php echo home_url('/mentalhealth'); ?>">Read More</a>
+      </p>
+    </div>
+    
+    <?php } ?>
+  </div>
+</div>
+
+<div class="cc-footer">
+  &copy; <?php echo date('Y'); ?> whispr dev. A small secret from blairboulevard.online by whispr.dev.
+</div>
+
+<?php wp_footer(); ?>
+</body>
+</html>
